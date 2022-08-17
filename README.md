@@ -118,3 +118,22 @@ function App() {
 
 export default App;
 ```
+
+##  6. Creating Account
+
+- Refer to the EmailAuthProvider in Firebase documentation.
+https://firebase.google.com/docs/auth/web/password-auth#sign_in_a_user_with_an_email_address_and_password
+
+1. Create a toggle to see whether user is a new user or an existing user. 
+
+```
+  ...App start
+  const toggleAccount = () => setNewAccount((prev) => !prev);
+
+  ...return
+   <span onClick={toggleAccount}>
+        {newAccount ? "Sign In" : "Create Account"}
+      </span>
+```
+
+- When the user clicks on the span, it will change the status.
