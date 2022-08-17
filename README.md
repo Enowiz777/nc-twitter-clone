@@ -79,3 +79,42 @@ npm i react-router-dom
 ```
 d. Create a router.
 *Routers are compoennts*
+
+## 5. Use Firebse Auth
+
+- Relative import: ../
+- To avoid relative import, you use absolute import. 
+*How do you create an absolute import?*
+Steps:
+1. Create jsconfig.json
+2. Add below code in jsconfig.json
+```js
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
+```
+
+- Create AppRouter in Apps.js
+Overall Flow: App > AppRouter > Route to diferrent page such as <Home> <Auth /> etc
+
+Steps:
+```js
+import React, { useState } from "react";
+import AppRouter from "components/Router";
+import { authService } from "fbase";
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+  return (
+    <>
+      <AppRouter isLoggedIn={isLoggedIn} />
+      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
+    </>
+  );
+}
+
+export default App;
+```

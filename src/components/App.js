@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from "react";
+import AppRouter from "components/Router";
+import { authService } from "../firebase";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
   return (
-    <div>Hello World!</div>
+    <>
+      <AppRouter isLoggedIn={isLoggedIn} />
+      <footer>&copy; {new Date().getFullYear()} Twitter</footer>
+    </>
   );
 }
 
